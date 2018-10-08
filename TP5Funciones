@@ -1,0 +1,190 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TPFunciones
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // PROGRAMA PRINCIPAL //
+            setConsola();
+            menu();
+            
+            // FUNCIONES //
+            /// 0. CREO SETEO INICIAL DE CONSOLA ///
+            void setConsola()
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.Title = "TP - Ejercicio 5 Funciones";
+            }
+
+            /// 1. CREO LA FUNCION MENU ///
+            void menu()
+            {
+                Console.WriteLine(" ------------------------- ");
+                Console.WriteLine(" -  PROGRAMA DE PEDIDOS  - ");
+                Console.WriteLine(" ------------------------- ");
+                Console.WriteLine("");
+                Console.WriteLine(" 1. VER MENU DE EMPANADAS  ");
+                Console.WriteLine(" 2. PROMOCIONES            ");
+                Console.WriteLine(" 3. HACER PEDIDO           ");
+                Console.WriteLine(" 4. ZONAS DE ENTREGA       ");
+                Console.WriteLine(" 5. SALIR                  ");
+                Console.WriteLine("");
+
+                Console.Write(" Ingrese Una Opción: ");
+                int opcionSwitch = 0;
+                opcionSwitch = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcionSwitch)
+                {
+                    case 1:
+                        Linea();
+                        MenuEmpandas();
+                        Linea();
+                        menu();
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Ingresaste opción 2. PROMOCIONES");
+                        menu();
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Ingresaste opción 3. HACER PEDIDO");
+                        HacerPedido();
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Ingresaste opción 4. ZONAS DE ENTREGA");
+                        menu();
+                        break;
+
+                    case 5:
+                        salir();
+                        break;
+
+                    default:
+                        Console.WriteLine("");
+                        Console.WriteLine("Opción Inválida. Vuelva a ingresar una Opción.");
+                        Console.WriteLine("");
+                        menu();
+                        break;
+                }
+            }
+
+            /// 2. CREO LA FUNCION LIMPIAR PANTALLA
+            void LimpiarPantalla()
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    Console.WriteLine("");
+                }
+            }
+
+            /// 3. CREO LA FUNCION LINEA (Que sirve para dejar una línea en blanco y un decorado)
+            void Linea()
+            {
+                Console.WriteLine("");
+                Console.WriteLine("------------------------------------------------------------");
+                Console.WriteLine("");
+            }
+
+            /// FUNCION OPCION 1. VER MENU DE EMPANADAS
+            void MenuEmpandas()
+            {
+                Console.WriteLine("   MENU DE EMPANADAS   ");
+                Console.WriteLine("- Jamón y queso");
+                Console.WriteLine("- Carne");
+                Console.WriteLine("- Pollo");
+                Console.WriteLine("- Caprese");
+                Console.WriteLine("- Verdura");
+                Console.WriteLine("- Queso y Cebolla");
+            }
+
+            /// FUNCION OPCION 2. ZONAS DE ENTREGA
+            /// ACA SE PROGRAMARA LA FUNCION PARA ZONAS DE ENTREGA
+
+            /// FUNCION OPCION 3. HACER PEDIDO
+            void HacerPedido()
+            {
+                List<string> list = new List<string>();
+
+
+                Console.WriteLine("   MENU DE EMPANADAS   ");
+                Console.WriteLine("1- Jamón y queso");
+                Console.WriteLine("2- Carne");
+                Console.WriteLine("3- Pollo");
+                Console.WriteLine("4- Caprese");
+                Console.WriteLine("5- Verdura");
+                Console.WriteLine("6- Queso y Cebolla");
+                Console.WriteLine("7- Terminar pedido");
+                Console.WriteLine("8- Salir");
+                Console.Write(" Ingrese el número de la empanada que desea: ");
+                int x = 0;
+                x = Convert.ToInt32(Console.ReadLine());
+
+                if (x == 1)
+                {
+                    list.Add("Jamon y queso");
+                    HacerPedido();
+                }
+                else if (x == 2)
+                {
+                    list.Add("Carne");
+                    HacerPedido();
+
+                }
+                else if (x == 3)
+                {
+                    list.Add("Pollo");
+                    HacerPedido();
+                }
+                else if (x == 4)
+                {
+                    list.Add("Caprese");
+                    HacerPedido();
+                }
+                else if (x == 5)
+                {
+                    list.Add("Verdura");
+                    HacerPedido();
+                }
+                else if (x == 6)
+                {
+                    list.Add("Queso y Cebolla");
+                    HacerPedido();
+                }
+                else if (x == 7)
+                {
+                    Console.WriteLine("Su pedido es: ", list.ToArray());
+                }
+                else if (x == 8)
+                {
+                    menu();
+                }
+                else
+                {
+                    Console.WriteLine("Ingresé un valor del menú ");
+                }
+            }
+
+            /// FUNCION OPCION 4. PROMOCIONES
+            /// ACA SE PROGRAMARA LA FUNCION PARA PROMOCIONES
+
+            /// FUNCION OPCION 5. SALIR
+            void salir()
+            {
+                Linea();
+                Console.WriteLine("Muchas gracias! Hasta luego.");
+                Linea();
+                Environment.Exit(0);
+            }
+        }
+    }
+}
